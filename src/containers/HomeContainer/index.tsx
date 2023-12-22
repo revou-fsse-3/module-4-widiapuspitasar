@@ -56,7 +56,7 @@ const HomeContainer = () => {
       <form onSubmit={formMik.handleSubmit} className="color-red mx-auto max-w-md">
         {step === 1 && (
           <div>
-            <Text className="text-blue-500 text-2xl font-bold p-4">{'Personal Information'}</Text>
+            <Text className="text-blue-500 text-center text-2xl font-bold p-4">{'Personal Information'}</Text>
             <div>
               <Text>{'Name'}</Text>
               <Input
