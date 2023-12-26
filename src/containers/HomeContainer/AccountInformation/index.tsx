@@ -18,6 +18,7 @@ const AccountInformation: React.FC<AccountInformationProps> = ({ data, onPreviou
       password: data.password || '',
     },
     onSubmit: (values, { resetForm }) => {
+      console.log(values)
       resetForm();
       alert("Form success submitted");
       onSubmit(); 
