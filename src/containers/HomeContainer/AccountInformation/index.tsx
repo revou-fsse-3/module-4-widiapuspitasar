@@ -20,7 +20,7 @@ const AccountInformation: React.FC<AccountInformationProps> = ({ data, onPreviou
     onSubmit: (values, { resetForm }) => {
       console.log(values)
       resetForm();
-      alert("Form success submitted");
+      alert("Form successfully submitted");
       onSubmit(); 
     },
     validationSchema: yup.object({

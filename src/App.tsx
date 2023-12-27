@@ -25,7 +25,7 @@ const App: React.FC = () => {
 
   const handleFormSubmit = () => {
     console.log('Form submitted', formData);
-    // Add logic for form submission
+    resetFormData(); 
   };
 
   const handlePersonalInfoChange = (data: any) => {
@@ -49,11 +49,25 @@ const App: React.FC = () => {
     }));
   };
 
+  const resetFormData = () => {
+    setFormData({
+      personalInfo: { name: '', email: '', datebirth: '' },
+      addressInfo: { address: '', state: '', city: '', zip: '' },
+      accountInfo: { username: '', password: '' },
+    });
+  };
+
   return (
     <div>
       <Card border={false}>
         <div>
-          {step === 1 && <PersonalInformation data={formData.personalInfo} onChange={handlePersonalInfoChange} onNext={handleNext} />}
+          {step === 1 && (
+            <PersonalInformation
+              data={formData.personalInfo}
+              onChange={handlePersonalInfoChange}
+              onNext={handleNext}
+            />
+          )}
         </div>
         <div>
           {step === 2 && (
@@ -81,4 +95,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default App;
