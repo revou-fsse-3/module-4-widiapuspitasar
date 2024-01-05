@@ -8,7 +8,7 @@ interface Props{
 const Card = ({border, children} : Props) => {
 
     return(
-        <div className={`${border && 'rounded border-slate-600 border'} p-4`}>
+        <div className={`${border && 'box-border rounded border-slate-600 border'} p-4`}>
             {children}
         </div>
     )
