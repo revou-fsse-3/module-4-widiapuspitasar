@@ -1,7 +1,20 @@
+import { Outlet, Navigate } from 'react-router-dom'
+
 const ProtectLayout = () => {
-    return (
-        <div></div>
-    )
+
+
+    const token = localStorage.getItem('token');
+
+        if (token) {
+            return (
+                <div>
+                    <Outlet />
+                    {/* <div>Footer</div> */}
+                </div>
+            )
+        }
+
+    return <Navigate to="/login" />
 }
 
 export default ProtectLayout
