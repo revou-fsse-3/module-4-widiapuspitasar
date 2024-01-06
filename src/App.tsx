@@ -3,7 +3,6 @@ import { Login, Register } from './Page/authentication';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import PublicLayout from './layout/PublicLayout';
 import { List, Edit, Add } from './Page/Category';
-import ProtectLayout from './layout/ProtectedLayout';
 
 
 
