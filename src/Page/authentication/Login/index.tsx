@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import { Input, Text, Button, Card } from "../../../components";
 import { useFormik } from "formik";
 import * as yup from "yup";
@@ -12,7 +12,7 @@ interface DataProps {
 
 }
 const Login = () => {
-  const [selectedUser] = useState<DataProps>();
+ 
   const context = useContext<ContextType>(AppContext)
   const setOpen = context?.setOpen
   const setMessage = context?.setMessage
