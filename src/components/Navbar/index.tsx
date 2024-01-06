@@ -13,6 +13,9 @@ const Navbar = () => {
   const handleHome = () => {
     navigate('/')
   }
+  const handleCategories = () => {
+    navigate('/list')
+  }
 
 
   return (
@@ -36,7 +39,7 @@ const Navbar = () => {
         <div className="hidden sm:ml-6 sm:block">
           <div className="flex space-x-4">
             <button onClick={handleHome} className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Home</button>
-            <button onClick={handleHome}  className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Categories</button>
+            <button onClick={handleCategories}  className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Categories</button>
             <button onClick={handleLogin} className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Login</button>
             <button onClick={handleRegister} className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">SignUp</button>
           </div>

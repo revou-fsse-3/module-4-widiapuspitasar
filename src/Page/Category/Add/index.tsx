@@ -51,7 +51,7 @@ const Add = () => {
                 }
             })
 
-            navigate('/')
+            navigate('/list')
         } catch (error) {
             const err = error as AxiosError as any
             const errors = err.response?.data?.errors

@@ -6,58 +6,6 @@ import { useNavigate } from "react-router-dom";
 import axios, { AxiosError } from "axios";
 import { AppContext, ContextType } from '../../../Provider';
 
-// interface LoginProps {
-//   data: { email: string; password: string };
-//   onChange: (data: any) => void;
-//   onSubmit: () => void;
-// }
-
-// const Login: React.FC<LoginProps> = ({ data, onSubmit }) => {
-//   const [apiError, setApiError] = useState<string | null>(null);
-
-//   const formik = useFormik({
-//     initialValues: {
-//       email: data.email || '',
-//       password: data.password || '',
-//     },
-//     onSubmit: async (values, { resetForm }) => {
-//       try {
-//         const response = await axios.post('https://mock-api.arikmpt.com/api/user/login', {
-//           email: values.email,
-//           password: values.password,
-//         });
-
-//         // Assuming the API returns a success message or token
-//         console.log(response.data);
-        
-//         // Reset the form
-//         resetForm();
-        
-//         // Trigger the parent component's onSubmit
-//         onSubmit(); 
-//       } catch (error) {
-//         const err = error as AxiosError<any>; // Use 'any' as the error response type
-//         setApiError(err.response?.data?.message || 'An error occurred');
-//       }
-//     },
-//     validationSchema: yup.object({
-//       email: yup.string().email("Email is not valid").required("Email is required"),
-//       password: yup.string().matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/, 'Password must be at least 8 characters long and include at least one lowercase letter, one uppercase letter, one number, and one special character').required('Please enter the password'),
-//     }),
-//   });
-
-//   const handleFormSubmit = (e: React.FormEvent) => {
-//     e.preventDefault();
-//     setApiError(null); // Clear previous API error
-//     formik.handleSubmit();
-//   };
-
-//   const navigate = useNavigate();
-
-//   const handleRegister = () => {
-//     navigate('/register');
-//   }
-
 interface DataProps {   
   email: string;
   password: string;
