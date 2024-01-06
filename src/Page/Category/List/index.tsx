@@ -11,42 +11,41 @@ interface Category {
 
 const List = () => {
     const navigate = useNavigate();
-    const [rows, setRows] = useState<Category[]>([]);
+    const [rows, setRows] = useState<Category[]>([])
 
     const handleEdit = (id: string) => () => {
         navigate(`/edit/${id}`);
     }
 
-    const token = window.localStorage.getItem('token');
+    const token = window.localStorage.getItem('token')
 
     const fetchList = async () => {
-        try {
-            const response = await axios.get('https://mock-api.arikmpt.com/api/category', {
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-            });
-            setRows(response.data.data);
-        } catch (error) {
-            console.error("Error fetching data:", error);
-        }
+        const response = await axios.get('https://mock-api.arikmpt.com/api/category' , {
+            headers: {
+                'Authorization' : `Bearer ${token}`
+            }
+        })
+        setRows(response.data.data)
     }
 
-    useEffect(() => {
-        fetchList();
-    }, []);
+    useEffect(
+        () => {
+            fetchList()
+        },
+        []
+    )
 
     const handleDelete = (id: string) => async () => {
         try {
             await axios.delete(`https://mock-api.arikmpt.com/api/category/${id}`, {
                 headers: {
-                    'Authorization': `Bearer ${token}`
+                    'Authorization' : `Bearer ${token}`
                 }
-            });
+            })
 
-            fetchList();
+            fetchList()
         } catch (error) {
-            console.error("Error deleting data:", error);
+            
         }
     }
 
@@ -69,26 +68,47 @@ const List = () => {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                {rows.map((row) => (
-                                    <TableRow key={row.id}>
-                                        <TableCell>{row.id}</TableCell>
-                                        <TableCell align="center">{row.name}</TableCell>
-                                        <TableCell align="center">{row.is_active ? 'Active' : 'Deactive'}</TableCell>
-                                        <TableCell align="center">
-                                            <div className="action-group">
-                                                <Button size="small" variant="contained" onClick={handleEdit(row.id)}>Edit</Button>
-                                                <Button size="small" variant="outlined" color="error" onClick={handleDelete(row.id)}>Hapus</Button>
-                                            </div>
-                                        </TableCell>
-                                    </TableRow>
-                                ))}
+                                {
+                                    rows.map((row) => (
+                                        <TableRow key={row.id}>
+                                            <TableCell>{row.id}</TableCell>
+                                            <TableCell align="center">{row.name}</TableCell>
+                                            <TableCell align="center">{row.is_active ? 'Active' : 'Deactive'}</TableCell>
+                                            <TableCell align="center">
+                                                <div className="action-group">
+                                                    <Button size="small" variant="contained" onClick={handleEdit(row.id)}>Edit</Button>
+                                                    <Button size="small" variant="outlined" color="error" onClick={handleDelete(row.id)}>Hapus</Button>
+                                                </div>
+                                            </TableCell>
+                                        </TableRow>
+                                    ))
+                                }
                             </TableBody>
+                            {/* <TableFooter>
+                                <TableRow>
+                                    <TablePagination
+                                        rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+                                        colSpan={4}
+                                        count={rows.length}
+                                        rowsPerPage={10}
+                                        page={1}
+                                        SelectProps={{
+                                            inputProps: {
+                                                'aria-label': 'rows per page',
+                                            },
+                                            native: true,
+                                        }}
+                                        onPageChange={() => console.log('handle change')}
+                                        onRowsPerPageChange={() => console.log('handle row change')}
+                                    />
+                                </TableRow>
+                            </TableFooter> */}
                         </Table>
                     </TableContainer>
                 </div>
             </Container>
         </div>
-    );
+    )
 }
 
-export default List;
+export default List

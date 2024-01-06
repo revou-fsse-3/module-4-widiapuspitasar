@@ -41,9 +41,6 @@ const Register = () => {
                 password: data.password
             })
 
-            // Simpan data pengguna di local storage
-            window.localStorage.setItem('user', JSON.stringify(data));
-
             navigate('/list');
         } catch (error) {
             const err = error as AxiosError as any
