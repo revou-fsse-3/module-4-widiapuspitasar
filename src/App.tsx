@@ -16,7 +16,7 @@ const App: React.FC = () => {
           <Route path='login' element={<Login/>}/>
           <Route path='*' element={<h1>ERROR PAGE</h1>}/>
           <Route path="register" element={<Register/>} />
-          <Route element={<ProtectLayout />}>
+          <Route >
             <Route path="/" element={<List/>} />
             <Route path="/add" element={<Add/>} />
             <Route path="/edit/:id" element={<Edit />} />

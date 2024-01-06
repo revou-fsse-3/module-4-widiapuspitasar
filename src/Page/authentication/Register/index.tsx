@@ -41,6 +41,8 @@ const Register = () => {
                 password: data.password
             })
 
+            
+
             navigate('/list');
         } catch (error) {
             const err = error as AxiosError as any
